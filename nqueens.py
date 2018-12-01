@@ -31,3 +31,24 @@ def solve(n):
         solutions.append(solution + [(n, column)])
         #Return solutions
   return solutions
+
+#Create function to display solutions
+def display(solution):
+  chars = list()
+  #Iterate through row range in board size
+  for r in range(BOARD_SIZE):
+    #Iterate through colum range in board size
+    for c in range(BOARD_SIZE):
+      #If queen does not conflict
+      if (r + 1, c + 1) in solution:
+        #Place one to list
+        chars.append("1 ")
+      else:
+        #If it does conflict place 0
+        chars.append("0 ")
+    if r != BOARD_SIZE:
+      chars.append("\n")
+  return ("".join(chars))
+  
+for answer in solve(BOARD_SIZE): 
+  print(display(answer) + "\n\n")
