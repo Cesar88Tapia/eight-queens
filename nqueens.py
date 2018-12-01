@@ -14,3 +14,20 @@ def under_attack(column, existing_queens):
     if(column - c) == -(row - r): return True #Check if it's diagonal right
   return False
   
+  #Create function to find solutions
+def solve(n):
+  #If n is equal to 0 return empty array for no solution
+  if n == 0: return [[]]
+  #Fucntions for smaller solutions
+  smaller_solutions = solve(n-1)
+  #Store solutions in array
+  solutions = []
+  #Iterate through solutions in smaller solutions
+  for solution in smaller_solutions:
+    #Iterate through colum´s range in the board size and increment by one
+    for column in range(1, BOARD_SIZE + 1):
+      #If there is no risk place queen
+      if not under_attack(column, solution):
+        solutions.append(solution + [(n, column)])
+        #Return solutions
+  return solutions
