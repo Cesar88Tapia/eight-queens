@@ -1,9 +1,14 @@
 solutions = []
 
+#Create a function to define position and last position in the board
 def threatened(pos, past, n):
+    #Iterate through the length of last positions
     for i in range(len(past)):
+        #If last position conflicts
         if past[i] == pos or abs(pos - past[i]) == len(past) - i:
+            #Return ture
             return True
+    #Otherwise return false
     return False
 
 def nqueens(n, past=None):
