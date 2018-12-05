@@ -1,8 +1,8 @@
 solutions = []
 
-#Create a function to define position and last position in the board
+#Create a function to define if given position is threatened by another queen
 def threatened(pos, past, n):
-    #Iterate through the length of last positions
+    #Iterate through past positions
     for i in range(len(past)):
         #If last position conflicts
         if past[i] == pos or abs(pos - past[i]) == len(past) - i:
